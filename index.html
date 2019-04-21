@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grade Calculator</title>
+    <link rel="icon" href="assets/icon.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <ul>
+        <li><img class="logoImage" src="" alt=""></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Grade Calculator</a></li>
+        <li><a href="#">GPA Calculator</a></li>
+      </ul>
+    </nav>
+
+    <!-- Non Nav content container -->
+    <section id="container">
+      <!-- Title -->
+      <div id="titlePanel">
+        <h1>GRADE CALCULATOR</h1>
+      </div>
+
+      <!-- Status Panel -->
+      <div id="statusPanel">
+        <div>
+          <h2>XX.XX%</h2>
+          <p>Current Grade</p>
+        </div>
+        <div>
+          <h2>XX.XX%</h2>
+          <p>Current Weight</p>
+        </div>
+        <div>
+          <h2>XX.XX%</h2>
+          <p>Grade to Goal</p>
+        </div>
+      </div>
+
+      <section id="bottomContainer">
+        <!-- Left / Mark Panel -->
+        <div id="markPanel">
+          <table>
+            <caption>MARKS</caption>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Grade</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td contenteditable="true">65.43%</td>
+                <td contenteditable="true">15.00%</td>
+                <td><button type="button" name="button" class="deleteButton">X</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td contenteditable="true">65.43%</td>
+                <td contenteditable="true">15.00%</td>
+                <td><button type="button" name="button" class="deleteButton">X</button></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td contenteditable="true">65.43%</td>
+                <td contenteditable="true">15.00%</td>
+                <td><button type="button" name="button" class="deleteButton">X</button></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td contenteditable="true">65.43%</td>
+                <td contenteditable="true">15.00%</td>
+                <td><button type="button" name="button" class="deleteButton">X</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Right Panel -->
+        <div id="rightPanel">
+          <p>Set a goal of a final grade that you are aiming to achieve and the calculator will display the grade required on the remaining assignments / tests to reach this goal.</p>
+          <div class="buttonContainer">
+            <button type="button" name="setGoalBtn">Set Goal</button>
+          </div>
+          <br>
+          <br>
+          <p>Add a mark to the table on the left. The current grade, current weight, and grade to goal sections will update appropriately.</p>
+          <div class="buttonContainer">
+            <button type="button" name="addMarkBtn">Add Mark</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <a target="_blank" href="http://www.willmckinnon.com">Website Created By William McKinnon</a>
+    </footer>
+  </body>
+</html>
