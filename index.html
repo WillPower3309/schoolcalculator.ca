@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Grade Calculator</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grade Calculator">
+    <meta name="keywords" content="grade,calculator,average,gradecalc">
+    <meta name="author" content="William McKinnon">
+
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <link rel="icon" href="assets/icon.png">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -29,23 +39,23 @@
       <!-- Status Panel -->
       <div id="statusPanel">
         <div>
-          <h2>XX.XX%</h2>
+          <h2 id="currentGrade">XX.XX%</h2>
           <p>Current Grade</p>
         </div>
         <div>
-          <h2>XX.XX%</h2>
+          <h2 id="currentWeight">XX.XX%</h2>
           <p>Current Weight</p>
         </div>
         <div>
-          <h2>XX.XX%</h2>
-          <p>Grade to Goal</p>
+          <h2 id="gradeToGoal">XX.XX%</h2>
+          <p id="gradeToGoalText">Grade to Goal</p>
         </div>
       </div>
 
       <section id="bottomContainer">
         <!-- Left / Mark Panel -->
         <div id="markPanel">
-          <table>
+          <table id="gradeTable">
             <caption>MARKS</caption>
             <thead>
               <tr>
@@ -87,13 +97,13 @@
         <div id="rightPanel">
           <p>Set a goal of a final grade that you are aiming to achieve and the calculator will display the grade required on the remaining assignments / tests to reach this goal.</p>
           <div class="buttonContainer">
-            <button type="button" name="setGoalBtn">Set Goal</button>
+            <button type="button" name="setGoalBtn" id="setGoalBtn">Set Goal</button>
           </div>
           <br>
           <br>
           <p>Add a mark to the table on the left. The current grade, current weight, and grade to goal sections will update appropriately.</p>
           <div class="buttonContainer">
-            <button type="button" name="addMarkBtn">Add Mark</button>
+            <button type="button" name="addMarkBtn" id="addMarkBtn">Add Mark</button>
           </div>
         </div>
       </section>
@@ -102,5 +112,7 @@
     <footer>
       <a target="_blank" href="http://www.willmckinnon.com">Website Created By William McKinnon</a>
     </footer>
+
+    <script src="index.js"></script>
   </body>
 </html>
