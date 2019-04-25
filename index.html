@@ -78,9 +78,11 @@
           <br>
           <br>
           <p>Add a mark to the table on the left. The current grade, current weight, and grade to goal sections will update appropriately.</p>
-          <div class="buttonContainer">
-            <button type="button" name="addMarkBtn" id="addMarkBtn">Add Mark</button>
-          </div>
+          <form id="addMarkForm" action="index.html" method="post">
+            <input type="text" id="gradeVal" value="Grade" required>
+            <input type="text" id="weightVal" value="Weight" required>
+            <input type="submit" name="addMark" value="Add Mark">
+          </form>
         </div>
       </section>
     </section>

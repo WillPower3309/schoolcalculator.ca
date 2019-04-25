@@ -18,10 +18,18 @@ $(document).ready(function() {
   ***********************************/
 
   // add mark listener
-  document.getElementById("addMarkBtn").addEventListener("click", function() {
-    numRows++;
-    addRow(numRows, 12.32, 23.31);
-    updateStatus();
+  $("#addMarkForm").submit(function(e) {
+    e.preventDefault();
+    var grade = document.getElementById("gradeVal").value;
+    var weight = document.getElementById("weightVal").value;
+    if(!isGrade(grade) || !isGrade(weight)) {
+      alert("Please Enter Valid Grade / Weight");
+    }
+    else {
+      numRows++;
+      addRow(numRows, grade, weight);
+      updateStatus();
+    }
   });
 
   // add set goal listener
@@ -55,10 +63,10 @@ function addRow(num, grade, weight) {
   numCell.appendChild(document.createTextNode(num));
 
   var gradeCell = newRow.insertCell(1);
-  gradeCell.appendChild(document.createTextNode(grade + "%"));
+  gradeCell.appendChild(document.createTextNode(parseFloat(Math.round(grade * 100) / 100).toFixed(2) + "%"));
 
   var weightCell = newRow.insertCell(2);
-  weightCell.appendChild(document.createTextNode(weight + "%"));
+  weightCell.appendChild(document.createTextNode(parseFloat(Math.round(weight * 100) / 100).toFixed(2) + "%"));
 
   var buttonCell = newRow.insertCell(3);
   var delButton = document.createElement("button");
@@ -74,6 +82,7 @@ function deleteRow(row) {
   var rowToDelete = this.parentNode.parentNode.rowIndex;
   document.getElementById("gradeTable").deleteRow(rowToDelete);
   updateRowNum();
+  updateStatus();
 }
 
 

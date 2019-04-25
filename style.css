@@ -133,7 +133,7 @@ tr {
   justify-content: center;
 }
 
-button {
+button, input[type=submit] {
   border-radius: 50px;
   margin: 10px;
   border: 1px solid transparent;
@@ -143,7 +143,7 @@ button {
   background-color: #ECB546
 }
 
-button:hover {
+button:hover, input[type=submit]:hover{
   color: #ECB546;
   border: 1px solid #ECB546;
   background-color: white;
