@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>School Calculator</title>
+    <title>GPA Calculator</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,9 +23,9 @@
     <nav>
       <ul>
         <li><img class="logoImage" src="" alt=""></li>
-        <li><a href="./index.html" class="active">Home</a></li>
+        <li><a href="./index.html">Home</a></li>
         <li><a href="./gradeCalc.html">Grade Calculator</a></li>
-        <li><a href="./gpaCalc.html">GPA Calculator</a></li>
+        <li><a href="./gpaCalc.html" class="active">GPA Calculator</a></li>
       </ul>
     </nav>
 
@@ -33,13 +33,28 @@
     <section id="container">
       <!-- Title -->
       <div id="titlePanel">
-        <h1>HOME PLACEHOLDER</h1>
+        <h1>GPA CALCULATOR</h1>
       </div>
+
+      <table class="gpaTable">
+        <caption>SEMESTER ONE</caption>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Credits</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
     </section>
 
     <footer>
       <a target="_blank" href="http://www.willmckinnon.com">William McKinnon</a>
     </footer>
 
+    <script src="gpaCalc.js"></script>
   </body>
 </html>
