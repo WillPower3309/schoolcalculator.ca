@@ -3,10 +3,15 @@
   Date: April 14, 2019
   Project: Grade Calculator Site
 ***********************************/
+
+// GLOBAL VARIABLES
+var numRows = 0; // number of marks in table
+var goal = 0;
+
 $(document).ready(function() {
 
-  var numRows = 0; // number of marks in table
-  var goal = 0;
+  numRows = 0; // number of marks in table
+  goal = 0;
 
   /***********************************
     Event Listeners
@@ -15,15 +20,21 @@ $(document).ready(function() {
   // add mark listener
   document.getElementById("addMarkBtn").addEventListener("click", function() {
     numRows++;
+    addRow(numRows, 12.32, 23.31);
     updateStatus();
   });
 
   // add set goal listener
   document.getElementById("setGoalBtn").addEventListener("click", function() {
-    goal = "70";
-    document.getElementById("gradeToGoalText").innerHTML = "Grade to Goal Of " + parseFloat(Math.round(goal * 100) / 100).toFixed(2) + "%";
-    if(numRows != 0) {
-      updateStatus();
+    goal = prompt("Please Enter Your Goal");
+    if(!isGrade(goal)) {
+      alert("Please Enter a Valid Grade");
+    }
+    else {
+      document.getElementById("gradeToGoalText").innerHTML = "Grade to Goal Of " + parseFloat(Math.round(goal * 100) / 100).toFixed(2) + "%";
+      if(numRows != 0) {
+        updateStatus();
+      }
     }
   });
 
@@ -33,6 +44,48 @@ $(document).ready(function() {
 /***********************************
   Functions
 ***********************************/
+
+// adds a row to the mark table
+function addRow(num, grade, weight) {
+  var tableRef = document.getElementById("gradeTable").getElementsByTagName("tbody")[0];
+
+  var newRow = tableRef.insertRow(tableRef.rows.length);
+
+  var numCell = newRow.insertCell(0);
+  numCell.appendChild(document.createTextNode(num));
+
+  var gradeCell = newRow.insertCell(1);
+  gradeCell.appendChild(document.createTextNode(grade + "%"));
+
+  var weightCell = newRow.insertCell(2);
+  weightCell.appendChild(document.createTextNode(weight + "%"));
+
+  var buttonCell = newRow.insertCell(3);
+  var delButton = document.createElement("button");
+  delButton.innerHTML = "X"
+  delButton.classList.add("deleteButton");
+  delButton.addEventListener("click", deleteRow);
+  buttonCell.appendChild(delButton);
+}
+
+
+// event listener function for row delete buttons
+function deleteRow(row) {
+  var rowToDelete = this.parentNode.parentNode.rowIndex;
+  document.getElementById("gradeTable").deleteRow(rowToDelete);
+  updateRowNum();
+}
+
+
+// function to update the row values of a table with their corresponding num
+function updateRowNum() {
+  var tableRef = document.getElementById("gradeTable").getElementsByTagName("tbody")[0];
+  numRows = tableRef.rows.length;
+  for(var i in tableRef.rows) {
+    tableRef.rows[i].cells[0].innerHTML = parseInt(i, 10) + 1;
+  }
+}
+
 
 // updates the status
 function updateStatus() {
