@@ -11,7 +11,7 @@ var goal = 0;
 $(document).ready(function() {
 
   numRows = 0; // number of marks in table
-  goal = 0;
+  goal = 0; // goal
 
   /***********************************
     Event Listeners
@@ -113,12 +113,32 @@ function updateStatus() {
   }
   else {
     document.getElementById("currentGrade").innerHTML = parseFloat(Math.round((grade / totalWeight) * 100) / 100).toFixed(2) + "%";
+    // change color based on grade
+    if((grade / totalWeight) < 50) {
+      $("#currentGrade").css({"color":"#eb3b3b"});
+    }
+    else if((grade / totalWeight) < 75) {
+      $("#currentGrade").css({"color":"#f7e202"});
+    }
+    else {
+        $("#currentGrade").css({"color":"#bef702"});
+    }
   }
   document.getElementById("currentWeight").innerHTML = parseFloat(Math.round((totalWeight * 100) * 100) / 100).toFixed(2) + "%";
 
   if(goal) {
     var required = (((goal - (grade / totalWeight)) / 100) / (1 - totalWeight)) * 100 + (grade / totalWeight);
     document.getElementById("gradeToGoal").innerHTML = parseFloat(Math.round(required * 100) / 100).toFixed(2) + "%";
+    // change color based on gradeToGoal
+    if(required > 75) {
+      $("#gradeToGoal").css({"color":"#eb3b3b"});
+    }
+    else if(required > 50) {
+      $("#gradeToGoal").css({"color":"#f7e202"});
+    }
+    else {
+        $("#gradeToGoal").css({"color":"#bef702"});
+    }
   }
 }
 
