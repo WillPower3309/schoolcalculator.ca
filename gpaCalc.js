@@ -4,6 +4,8 @@
   Project: Grade Calculator Site
 ***********************************/
 
+var numSemesters = 1;
+
 $(document).ready(function() {
 
 });
