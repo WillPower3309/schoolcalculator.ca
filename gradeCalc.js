@@ -39,7 +39,7 @@ $(document).ready(function() {
       alert("Please Enter a Valid Grade");
     }
     else {
-      document.getElementById("gradeToGoalText").innerHTML = "Grade to Goal Of " + parseFloat(Math.round(goal * 100) / 100).toFixed(2) + "%";
+      document.getElementById("gradeToGoalText").innerHTML = "Remaining Required Grade to Goal Of " + parseFloat(Math.round(goal * 100) / 100).toFixed(2) + "%";
       if(numRows != 0) {
         updateStatus();
       }
@@ -90,7 +90,7 @@ function deleteRow(row) {
 function updateRowNum() {
   var tableRef = document.getElementById("gradeTable").getElementsByTagName("tbody")[0];
   numRows = tableRef.rows.length;
-  for(var i in tableRef.rows) {
+  for(var i = 0; i < numRows; i++) {
     tableRef.rows[i].cells[0].innerHTML = parseInt(i, 10) + 1;
   }
 }
